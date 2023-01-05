@@ -21,15 +21,15 @@ export class UserService {
 
 
   getJammers() {
-    return this.http.get(`https://letusjam.herokuapp.com/api/v1/users/3/search?`);
+    return this.http.get(`https://lets-jam-be.fly.dev/api/v1/users/3/search?`);
   }
 
   getUserProfile() {
-    return this.http.get('https://letusjam.herokuapp.com/api/v1/users/3/');
+    return this.http.get('https://lets-jam-be.fly.dev/api/v1/users/1/');
   }
 
   getIncomingJammerProfiles() {
-    return this.http.get('https://letusjam.herokuapp.com/api/v1/users/3/connections/');
+    return this.http.get('https://lets-jam-be.fly.dev/api/v1/users/1/connections/');
   }
 
   updateProfile(user: updatedUser) {
@@ -38,11 +38,11 @@ export class UserService {
           "Content-Type": "application/json",
         }),
     }
-    return this.http.patch<any>('https://letusjam.herokuapp.com/api/v1/users/3/', user, options)
+    return this.http.patch<any>('https://lets-jam-be.fly.dev/api/v1/users/1/', user, options)
  }
 
  sendJammerSearchParams(params: string) {
-    this.http.get(`https://letusjam.herokuapp.com/api/v1/users/3/search?${params}`).subscribe({
+    this.http.get(`https://lets-jam-be.fly.dev/api/v1/users/1/search?${params}`).subscribe({
       next: (returnedJammers: any) => {
         const searchedJammersArray = returnedJammers.data
         this.searchedUserEmitter.next(searchedJammersArray)
@@ -57,14 +57,14 @@ export class UserService {
  }
 
  acceptRequest(id: number) {
-   return this.http.patch<any>(`https://letusjam.herokuapp.com/api/v1/users/3/connections/${id}/`, 
+   return this.http.patch<any>(`https://lets-jam-be.fly.dev/api/v1/users/1/connections/${id}/`, 
      {
        "status": "APPROVED"
      })
 }
 
  sendRequest(id: any) {
-     return this.http.post<any>(`https://letusjam.herokuapp.com/api/v1/users/3/connections/${id}`, '')
+     return this.http.post<any>(`https://lets-jam-be.fly.dev/api/v1/users/1/connections/${id}`, '')
   }
 
 }
