@@ -21,7 +21,7 @@ export class UserService {
 
 
   getJammers() {
-    return this.http.get(`https://lets-jam-be.fly.dev/api/v1/users/3/search?`);
+    return this.http.get(`https://lets-jam-be.fly.dev/api/v1/users/1/search?`);
   }
 
   getUserProfile() {
