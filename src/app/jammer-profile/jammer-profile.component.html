@@ -2,7 +2,8 @@
 <ul class="box">
     <li *ngFor="let found of founds; index as i, let id of ids; index as o" class="jammerProfile">
     <div class="profileImage">
-        <img class="image" src="../assets/cat.png">
+        <!-- <img class="image" src="../assets/cat.png"> -->
+        <img class="image" src={{founds[i].picture_url}}>
     </div>
     <div class="flexDiv">
         <div class="jammerInfo">
