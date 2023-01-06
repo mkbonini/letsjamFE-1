@@ -75,6 +75,7 @@ public genres: any
         )
       };
     })
+    console.log(this.founds)
   }
 addUser(id: any) {
   this.userService.sendRequest(id).subscribe((data: any) => {
