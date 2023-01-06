@@ -50,16 +50,16 @@ public genres: any
   }
 
   ngOnInit(): void {
-    this.userService.searchedUserEmitter.subscribe((data: any) => {
-      this.founds = []
-      for(let i = 0; i< data.length; i++){
-        this.founds.push({
-          ...data[i].attributes,
-          instruments: data[i].attributes.instruments.map((instrument:any) => instrument.name),
-          genres: data[i].attributes.genres.map((genre:any) => genre.name)
-        });
-      };
-    })
+    // this.userService.searchedUserEmitter.subscribe((data: any) => {
+    //   this.founds = []
+    //   for(let i = 0; i< data.length; i++){
+    //     this.founds.push({
+    //       ...data[i].attributes,
+    //       instruments: data[i].attributes.instruments.map((instrument:any) => instrument.name),
+    //       genres: data[i].attributes.genres.map((genre:any) => genre.name)
+    //     });
+    //   };
+    // })
 
     this.userService.getJammers().subscribe((data: any) => {
       this.founds = []
