@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -13,6 +13,8 @@ import { AcceptedJammersComponent } from './accepted-jammers/accepted-jammers.co
 import { UserInfoComponent } from './user-info/user-info.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { FormsModule } from '@angular/forms'
+import { MonitorInterceptor } from './monitor.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,13 @@ import { FormsModule } from '@angular/forms'
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    { 
+      provide: HTTP_INTERCEPTORS, 
+      useClass: MonitorInterceptor, 
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
